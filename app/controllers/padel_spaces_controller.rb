@@ -1,0 +1,2 @@
+class PadelSpacesController < ApplicationController
+end

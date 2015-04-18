@@ -1,0 +1,2 @@
+class TenisSpacesController < ApplicationController
+end

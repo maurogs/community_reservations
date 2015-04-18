@@ -1,0 +1,2 @@
+class PartySpacesController < ApplicationController
+end
