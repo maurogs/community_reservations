@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20150418140736) do
   enable_extension "plpgsql"
 
   create_table "clients", force: true do |t|
+    t.integer  "house_id",   default: 0
     t.string   "name",       default: ""
     t.string   "lastname",   default: ""
     t.string   "password",   default: ""
@@ -31,62 +32,68 @@ ActiveRecord::Schema.define(version: 20150418140736) do
   end
 
   create_table "football_spaces", force: true do |t|
-    t.string   "name",       default: ""
-    t.string   "address",    default: ""
-    t.integer  "players",    default: 0
-    t.string   "soil",       default: ""
-    t.string   "type",       default: ""
-    t.string   "open_hour",  default: ""
-    t.string   "close_hour", default: ""
+    t.integer  "community_id", default: 0
+    t.string   "name",         default: ""
+    t.string   "address",      default: ""
+    t.integer  "players",      default: 0
+    t.string   "soil",         default: ""
+    t.string   "type",         default: ""
+    t.string   "open_hour",    default: ""
+    t.string   "close_hour",   default: ""
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "houses", force: true do |t|
-    t.string   "address",    default: ""
-    t.string   "members",    default: ""
+    t.integer  "community_id", default: 0
+    t.string   "address",      default: ""
+    t.string   "members",      default: ""
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "padel_spaces", force: true do |t|
-    t.string   "name",       default: ""
-    t.string   "address",    default: ""
-    t.integer  "players",    default: 0
-    t.string   "soil",       default: ""
-    t.string   "type",       default: ""
-    t.string   "open_hour",  default: ""
-    t.string   "close_hour", default: ""
+    t.integer  "community_id", default: 0
+    t.string   "name",         default: ""
+    t.string   "address",      default: ""
+    t.integer  "players",      default: 0
+    t.string   "soil",         default: ""
+    t.string   "type",         default: ""
+    t.string   "open_hour",    default: ""
+    t.string   "close_hour",   default: ""
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "party_spaces", force: true do |t|
-    t.string   "name",       default: ""
-    t.string   "address",    default: ""
-    t.integer  "capacity",   default: 0
-    t.string   "size",       default: "mediano"
-    t.string   "type",       default: ""
-    t.string   "open_hour",  default: ""
-    t.string   "close_hour", default: ""
+    t.integer  "community_id", default: 0
+    t.string   "name",         default: ""
+    t.string   "address",      default: ""
+    t.integer  "capacity",     default: 0
+    t.string   "size",         default: "mediano"
+    t.string   "type_space",   default: ""
+    t.string   "open_hour",    default: ""
+    t.string   "close_hour",   default: ""
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "reservations", force: true do |t|
+    t.integer  "client_id",  default: 0
     t.string   "name",       default: ""
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "tenis_spaces", force: true do |t|
-    t.string   "name",       default: ""
-    t.string   "address",    default: ""
-    t.integer  "players",    default: 0
-    t.string   "soil",       default: ""
-    t.string   "type",       default: ""
-    t.string   "open_hour",  default: ""
-    t.string   "close_hour", default: ""
+    t.integer  "community_id", default: 0
+    t.string   "name",         default: ""
+    t.string   "address",      default: ""
+    t.integer  "players",      default: 0
+    t.string   "soil",         default: ""
+    t.string   "type",         default: ""
+    t.string   "open_hour",    default: ""
+    t.string   "close_hour",   default: ""
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -8,7 +8,7 @@ class CreatePartySpaces < ActiveRecord::Migration
     t.string :address, default: ''  
     t.integer :capacity, default: 0  
     t.string :size, default: 'mediano'  # mediano, grande, pequeño
-    t.string :type, default: ''  # abierto, cerrado
+    t.string :type_space, default: ''  # abierto, cerrado
     t.string :open_hour, default: '' 
     t.string :close_hour, default: '' 
 

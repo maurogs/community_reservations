@@ -1,7 +1,7 @@
 class Community < ActiveRecord::Base
 	has_many :houses
-	has_many :padel_space
-	has_many :party_space
-	has_many :tenis_space
-	has_many :football_space
+	has_many :padel_spaces
+	has_many :party_spaces
+	has_many :tenis_spaces
+	has_many :football_spaces
 end
