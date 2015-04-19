@@ -6,7 +6,7 @@ class CreateSpaces < ActiveRecord::Migration
 
     t.string :name, default: ''  
     t.text :description, default: ''  
-    t.string :type, default: ''    
+    t.string :type_space, default: ''    
 
       t.timestamps
     end

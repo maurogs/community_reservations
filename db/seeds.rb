@@ -19,14 +19,33 @@ c1 = h1.clients.create(name: 'Pedro', lastname: 'Fernandez', password: 'asdf')
 c2 = h2.clients.create(name: 'María', lastname: 'Garcia', password: 'asdf')
 c3 = h2.clients.create(name: 'Cristina', lastname: 'Ramos', password: 'asdf')
 
-c4 = h3.clients.create(name: 'Luis', lastname: 'Alfredo', password: 'asdf', email: 'luisalfredo@mail.com')
-c5 = h3.clients.create(name: 'Marcos', lastname: 'Alfredo', password: 'asdf', email: 'marcosalfredo@mail.com')
-c6 = h3.clients.create(name: 'Ana', lastname: 'Jato', password: 'asdf', email: 'anajato@mail.com')
-c7 = h3.clients.create(name: 'Jana', lastname: 'Gil', password: 'asdf', email: 'janagil@mail.com')
+c4 = h2.clients.create(name: 'Luis', lastname: 'Alfredo', password: 'asdf')
+
+# c4 = h3.clients.create(name: 'Luis', lastname: 'Alfredo', password: 'asdf', email: 'luisalfredo@mail.com')
+# c5 = h3.clients.create(name: 'Marcos', lastname: 'Alfredo', password: 'asdf', email: 'marcosalfredo@mail.com')
+# c6 = h3.clients.create(name: 'Ana', lastname: 'Jato', password: 'asdf', email: 'anajato@mail.com')
+# c7 = h3.clients.create(name: 'Jana', lastname: 'Gil', password: 'asdf', email: 'janagil@mail.com')
 
 c8 = h4.clients.create(name: 'Ursula', lastname: 'Rodriguez', password: 'asdf')
 c9 = h4.clients.create(name: 'Jonas', lastname: 'Wert', password: 'asdf')
 c10 = h4.clients.create(name: 'Tom', lastname: 'Gin', password: 'asdf')
+
+com1.spaces.create(id: 11, name: 'Tenis A', description: 'Pista de tenis de tierra batida. Disponible con raquetas y pelotas', type_space: 'tenis')
+com1.spaces.create(id: 12, name: 'Padel A', description: 'Pista de pádel A', type_space: 'padel')
+com1.spaces.create(id: 13, name: 'Padel B', description: 'Pista de pádel B', type_space: 'padel')
+com1.spaces.create(id: 14, name: 'Futbol A', description: 'Campo de Fútbol con césped. Vestuarios disponibles. Pelotas no.', type_space: 'futbol')
+com1.spaces.create(id: 15, name: 'Ping pong A', description: 'Ping Pong, raquetas y pelota disponible.', type_space: 'ping pong')
+com1.spaces.create(id: 16, name: 'Futbolín A', description: 'Futbolín disponible para 1 hora', type_space: 'futbolin')
+
+c1.reservations.create(name: 'Pedro', hour: '10:00', date: Time.now.to_date, space_id: 11)
+c1.reservations.create(name: 'Pedro', hour: '12:00', date: Time.now.to_date, space_id: 16)
+
+c2.reservations.create(name: 'María', hour: '16:00', date: Time.now.to_date, space_id: 15)
+
+c3.reservations.create(name: 'Cristina', hour: '17:00', date: Time.now.to_date, space_id: 15)
+c3.reservations.create(name: 'Cristina', hour: '20:00', date: Time.now.to_date, space_id: 16)
+
+c4.reservations.create(name: 'Luis', hour: '09:00', date: Time.now.to_date, space_id: 12)
 
 com1.tenis_spaces.create(name: 'Serrano', address: 'Serrano 10', players: 2, soil: 'tierra', open_hour: '09:00', close_hour: '22:00')
 com1.tenis_spaces.create(name: 'Ayala', address: 'Ayala 115', players: 2, soil: 'tierra', open_hour: '11:00', close_hour: '20:00')

@@ -9,10 +9,7 @@ Rails.application.routes.draw do
         resources :reservations
       end
     end
-    resources :tenis_spaces
-    resources :padel_spaces
-    resources :party_spaces
-    resources :football_spaces
+    resources :spaces
   end
 
 end
