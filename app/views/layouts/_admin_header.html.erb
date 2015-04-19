@@ -16,8 +16,14 @@
         <li><a href="#">Page 3</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+      <% @client_ip = request.remote_ip %>
+      <% redis = Redis.new %>
+      <% if redis.get("#{@client_ip.to_s}")[0] == 'on' %>
+        <li>Bienvenido <%= redis.get("#{@client_ip.to_s}")[1] %></li>
+      <% else %>
         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <% end %>
       </ul>
     </div>
   </div>

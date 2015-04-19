@@ -1,0 +1,40 @@
+
+<input id = 'name' type="text" value='Nombre de la reserva'><br>
+<select name="hour" id="hour">
+	<% @hours.each do |hour| %>
+		<option value="<%= hour %>"><%= hour %></option>
+	<% end %>
+</select><br>
+<input id = 'date' type="text" value='19-04-2015'><br>
+<select name="space" id="space">
+	<% @spaces.each do |space| %>
+		<option value="<%= space.id %>"><%= space.name %></option>
+	<% end %>
+</select>
+
+<%= link_to "Añadir reserva", '', id: 'add_reserv', class: 'btn btn-info' %>
+
+
+<script>
+$('#add_reserv').click(function(){
+	var name = document.getElementById('name').value;
+	var date = document.getElementById('date').value;
+
+	var hour = document.getElementById("hour");
+    var h = hour.selectedIndex;
+
+	var space = document.getElementById("space");
+    var s = space.selectedIndex;
+
+	// Llamada post:
+		url = '/save_reservation';
+		var str = '{"client_name":"' + name + '","space_id":"' + space.options[s].value + '","hour":"' + hour.options[h].value + '"}';
+
+		var dataToSend = JSON.parse(str);	
+		var posting = $.post(url, dataToSend, function(data){
+			alert(data['message']);
+			window.location = "/reservations";
+	    });	
+});
+
+</script>

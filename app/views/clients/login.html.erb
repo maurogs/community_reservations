@@ -1,0 +1,21 @@
+
+<input id = 'email' type="text" value='Email'><br>
+<input id = 'password' type="text" value='Password'><br>
+
+<%= link_to "¡Entrar!", '', id: 'login_client', class: 'btn btn-info' %>
+
+<script>
+$('#login_client').click(function(){
+	var email = document.getElementById('email').value;
+	alert(email);
+	// Llamada post:
+		url = '/login_client/'+ email;
+		// var str = '{"email":"' + email + '"}';
+
+		// var dataToSend = JSON.parse(str);	
+		var posting = $.get(url, function(data){
+			window.location = "/reservations";
+			// alert(data['message'])
+	    });	
+})
+</script>

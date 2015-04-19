@@ -17,10 +17,10 @@ $('#send_message').click(function(){
 		url = '/email_recordatorio';
 		var str = '{"client_id":"<%= @client.id %>","message":"' + message + '","reservation_id":"<%= @reservation.id %>"}';
 
-		alert(str);
+		var dataToSend = JSON.parse(str);	
+		var posting = $.post(url, dataToSend, function(data){
+			alert(data['message']);
 
-		// var dataToSend = JSON.parse(str);	
-		// var posting = $.post(url, dataToSend, function(data){
-	    // });	
+	    });	
 })
 </script>
