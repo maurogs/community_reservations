@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20150419111906) do
     t.string   "name",       default: ""
     t.string   "lastname",   default: ""
     t.string   "password",   default: ""
+    t.string   "email",      default: ""
     t.float    "latitude",   default: 0.0
     t.float    "longitude",  default: 0.0
     t.datetime "created_at"
@@ -103,6 +104,15 @@ ActiveRecord::Schema.define(version: 20150419111906) do
     t.string   "name",         default: ""
     t.text     "description",  default: ""
     t.string   "type_space",   default: ""
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "spaces", force: true do |t|
+    t.integer  "community_id", default: 0
+    t.string   "name",         default: ""
+    t.text     "description",  default: ""
+    t.string   "type",         default: ""
     t.datetime "created_at"
     t.datetime "updated_at"
   end
