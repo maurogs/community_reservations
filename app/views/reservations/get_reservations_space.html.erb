@@ -1,0 +1,51 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h2 class="text-center"> Comunidad de vecinos <%= image_tag 'traity.jpg' %></h2>
+				</div>
+
+				<div class="panel-body">
+					<div class="text-center">
+						<h3><u>Reservas <%= @space.name %></u></h3>
+						<br>
+						<% if @space.picture.present? %>
+							<div class="text-center">
+								<%= image_tag @space.picture.url(:medium) %>
+							</div><br>
+						<% end %>
+
+						<table class="table table-bordered">
+							<thead>
+							  <tr>
+							    <th class='text-center'> Hour </th>
+							    <th class='text-center'> Name </th>
+							  </tr>
+							</thead>
+							<tbody>
+								<% @reservations.each do |reserv| %>
+									<% (@space.open_hour..@space.close_hour).each do |space_hour| %>
+										<tr class='text-center'>
+											<td><strong><%= space_hour %>:00</strong></td>
+
+											<% if space_hour.to_i == reserv.hour.to_i %>
+												<td><strong><%= reserv.name %></strong></td>
+											<% else %>
+												<td></td>
+											<% end %>
+											
+							 			</tr>
+									<% end %>
+								<% end %>	
+							</tbody>
+						</table>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>

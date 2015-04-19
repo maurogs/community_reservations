@@ -1,10 +1,44 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h2 class='text-center'> Reservas en <%= image_tag 'traity.jpg' %> </h2>
+				</div>
 
-<% @reservations.each do |reservation| %>
-	<%= reservation.name %>
-	<%= reservation.date %>
-	<%= reservation.hour %>
-	<%= Space.find(reservation.space_id).name %>
-	 - <%= link_to "Ver las reservas de #{reservation.name}", client_reservations_path(Client.where('name = ?', reservation.name).first.id) %>
-	 - <%= link_to "Enviar un recordatorio", "/recordatorio/#{Client.where('name = ?', reservation.name).first.id}/#{reservation.id}" %>
-	<br>
-<% end %>
+				<div class="panel-body">
+					  <table class="table table-bordered">
+					  	    <thead>
+							      <tr>
+							        <th class='text-center'>Hour</th>
+							        <% @spaces.each do |space| %>
+								        <th class='text-center'><%= space.name %></th>
+								    <% end %>
+							      </tr>
+							</thead>
+							
+							<tbody>
+								<% (8..24).each do |hour| %>
+									<% @reservations.each do |reservation| %>			
+										<% if hour == reservation.hour %>
+											<tr class='text-center'>
+												<td><strong><%= hour %>:00</strong></td>
+												<% @spaces.each do |space| %>
+													<% if space.name == Space.find(reservation.space_id).name %>
+														<td><%= link_to reservation.name, client_reservations_path(Client.where('name = ?', reservation.name).first.id) %></td>  
+													<% else %>
+														<td></td>
+													<% end %>
+												<% end %>
+											</tr>
+										<% end %>					
+									<% end %>
+								<% end %>
+							</tbody>
+					  </table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

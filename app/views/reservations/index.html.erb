@@ -1,9 +1,23 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h2 class='text-center'> Reservas en <%= image_tag 'traity.jpg' %> </h2>
+				</div>
 
+				<div class="panel-body">
+					<h3 class="text-center"> Reservas de <%= @client.name %></h3>
 
-<% @reservations.each do |reservation| %>
-	<%= reservation.name %>
-	<%= reservation.date %>
-	<%= reservation.hour %>
-	<%= Space.find(reservation.space_id).name %>
-	<br>
-<% end %>
+					<div class="text-center">
+						<% @reservations.each do |reservation| %>
+							<strong><%= reservation.hour %>:00</strong> - <%= Space.find(reservation.space_id).name %>
+							<br>
+						<% end %>					
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

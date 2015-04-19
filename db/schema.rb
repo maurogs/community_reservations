@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(version: 20150419125919) do
   create_table "reservations", force: true do |t|
     t.integer  "client_id",  default: 0
     t.string   "name",       default: ""
-    t.string   "hour",       default: ""
+    t.integer  "hour",       default: 0
     t.string   "date",       default: ""
     t.integer  "space_id",   default: 0
     t.datetime "created_at"
