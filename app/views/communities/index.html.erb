@@ -31,9 +31,12 @@
 								</div>
 							<% end %>
 							<div class="text-center">
-								<%= space.description %>
+								<br>
+								<strong><%= space.description %></strong> 
 							</div>
+							<br>
 							<div class="text-center">
+								<%= link_to 'Reservas', "/reservations/#{space.id}", class: 'btn btn-default btn-xs' %>
 								<%= link_to 'Editar', edit_space_path(space), class: 'btn btn-default btn-xs' %>
 								<%= link_to 'Eliminar', space_path(space), class: 'btn btn-default btn-xs', method: :delete, data: { confirm: 'Are you sure?'} %>
 							</div>

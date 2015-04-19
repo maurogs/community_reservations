@@ -5,7 +5,7 @@ class CreateReservations < ActiveRecord::Migration
     t.integer :client_id, default: 0
 
     t.string :name, default: ''
-    t.string :hour, default: ''
+    t.integer :hour, default: ''
     t.string :date, default: ''
     t.integer :space_id, default: 0
 

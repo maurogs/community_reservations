@@ -4,10 +4,17 @@ class ReservationsController < ApplicationController
 	def index
 		@client = Client.find(params[:client_id])
 		@reservations = @client.reservations.all
+ 		@spaces = Space.all
+	end
+
+	def get_reservations_space
+		@space = Space.find(params[:space_id])
+		@reservations = Reservation.where('space_id = ?', @space.id).all.order('hour DESC')
 	end
 
 	def get_reservations
- 		@reservations = Reservation.all
+ 		@reservations = Reservation.all.order("hour DESC")
+ 		@spaces = Space.all
 	end
 
 	def save_reservation
