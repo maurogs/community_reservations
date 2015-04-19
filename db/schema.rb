@@ -100,19 +100,10 @@ ActiveRecord::Schema.define(version: 20150419111906) do
   end
 
   create_table "spaces", force: true do |t|
-    t.integer  "community_id", default: 0
+    t.integer  "community_id", default: 1
     t.string   "name",         default: ""
     t.text     "description",  default: ""
     t.string   "type_space",   default: ""
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "spaces", force: true do |t|
-    t.integer  "community_id", default: 0
-    t.string   "name",         default: ""
-    t.text     "description",  default: ""
-    t.string   "type",         default: ""
     t.datetime "created_at"
     t.datetime "updated_at"
   end

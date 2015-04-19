@@ -1,23 +1,56 @@
 <div class="container">
-	<div class="jumbotron">
-		<div class="row"><h2 class="text-center"> Comunidad de vecinos <%= image_tag 'traity.jpg' %></h2></div>
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h2 class="text-center"> Comunidad de vecinos <%= image_tag 'traity.jpg' %></h2>
+				</div>
 
-		<br><br><br><br>
+				<% if @spaces.blank? %>
+					<div class="panel-body">
+						<br><br>
+						<h4 class="text-center">Todavía no tienes espacios deportivos introducidos.</h4>
+						<br><br>
+					</div>
 
-		<% if @space.blank? %>
-			<h4 class="text-center">Todavía no tienes espacios deportivos introducidos.</h4>
-			<br>
-			<div class='text-center'><%= link_to 'Añadir Espacio', new_community_space_path(1), class: 'btn btn-default' %></div>
-		<% else %>
-			<% @spaces.each do |space| %>
+					<div class="panel-footer">
+						<div class='text-center'>
+							<%= link_to 'Añadir Espacio', new_space_path, class: 'btn btn-default' %>
+						</div>
+					</div>
+				<% else %>
+					<% count = 1 %>
+					<% @spaces.each do |space| %>
+						<div class="panel-body">
+							
+							<h3 class="text-center"> <%= space.name %> </h3>
+							<br>
+							<div class="text-center">
+								<%= space.description %>
+							</div>
+							<div class="text-center">
+								<%= link_to 'Editar', edit_space_path(space), class: 'btn btn-default btn-xs' %>
+								<%= link_to 'Eliminar', space_path(space), class: 'btn btn-default btn-xs', method: :delete, data: { confirm: 'Are you sure?'} %>
+							</div>
+						</div>
+						<% count += 1 %>
+						<br>
+					<% end %>
+					<br><br>
+
+					<div class="panel-footer">
+						<div class='text-center'>
+							<%= link_to 'Añadir Espacio', new_space_path, class: 'btn btn-default' %>
+						</div>
+					</div>
+
 				
-			<% end %>
-		<% end %>
-
+				<% end %>
+			</div>
+		</div>
 	</div>
+
 </div>
 
-
-		
 
 
