@@ -6,6 +6,8 @@ class CreateHouses < ActiveRecord::Migration
 
     t.string :address, default: ''  
     t.string :members, default: ''  
+    t.float :latitude, precision: 10, scale: 6, default: 0
+    t.float :longitude, precision: 10, scale: 6, default: 0 
 
       t.timestamps
     end

@@ -2,6 +2,12 @@
 
 <% @comunities.each do |community| %>
 	<%= community.name %>
+	<h2>Espacios de tenis disponibles:</h2>
+	<%= community.tenis_spaces.each do |tenis_space| %>
+	<table></table>
+		<tr>
+			<td><%= tenis_space.name %></td>
+			<td><%= tenis_space.address %></td>
+		</tr>
+	<% end %>
 <% end %>
-
-

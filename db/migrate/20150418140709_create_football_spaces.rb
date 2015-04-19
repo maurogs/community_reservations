@@ -11,7 +11,9 @@ class CreateFootballSpaces < ActiveRecord::Migration
     t.string :type, default: ''  # abierto, cerrado
     t.string :open_hour, default: '' 
     t.string :close_hour, default: '' 
-
+    t.float :latitude, precision: 10, scale: 6, default: 0
+    t.float :longitude, precision: 10, scale: 6, default: 0 
+    
       t.timestamps
     end
   end

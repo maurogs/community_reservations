@@ -10,8 +10,10 @@ class CreatePadelSpaces < ActiveRecord::Migration
     t.string :soil, default: ''  # tierra batida, piedra, hierba
     t.string :type, default: ''  # dobles, single
     t.string :open_hour, default: '' 
-    t.string :close_hour, default: '' 
-    
+    t.string :close_hour, default: ''
+    t.float :latitude, precision: 10, scale: 6, default: 0
+    t.float :longitude, precision: 10, scale: 6, default: 0 
+        
       t.timestamps
     end
   end

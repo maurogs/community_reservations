@@ -4,4 +4,5 @@ class Community < ActiveRecord::Base
 	has_many :party_spaces
 	has_many :tenis_spaces
 	has_many :football_spaces
+	has_many :spaces
 end
