@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150419111906) do
+ActiveRecord::Schema.define(version: 20150419125919) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,12 +100,18 @@ ActiveRecord::Schema.define(version: 20150419111906) do
   end
 
   create_table "spaces", force: true do |t|
-    t.integer  "community_id", default: 0
-    t.string   "name",         default: ""
-    t.text     "description",  default: ""
-    t.string   "type_space",   default: ""
+    t.integer  "community_id",         default: 1
+    t.string   "name",                 default: ""
+    t.text     "description",          default: ""
+    t.string   "type_space",           default: ""
+    t.string   "open_hour",            default: ""
+    t.string   "close_hour",           default: ""
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
   end
 
   create_table "tenis_spaces", force: true do |t|

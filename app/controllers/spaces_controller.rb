@@ -1,4 +1,5 @@
 class SpacesController < ApplicationController
+	before_action :set_space, only: [:show, :edit, :update, :destroy]
 
 	def index
 		@spaces = Space.all.order("created_At ASC")
@@ -36,7 +37,11 @@ class SpacesController < ApplicationController
 	
 	protected
 
-	def area_params
-		params.require(:space).permit(:name, :type_space, :description)
+	def space_params
+		params.require(:space).permit(:name, :type_space, :description, :picture)
+	end
+
+	def set_space
+		@space = Space.find(params[:id])
 	end
 end
