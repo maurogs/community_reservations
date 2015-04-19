@@ -2,11 +2,19 @@
 <html>
 <head>
   <title>CommunityReservations</title>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+  <script type="text/javascript"
+	src="https://maps.googleapis.com/maps/api/js?
+	key=AIzaSyAt_8VqqHpji6T2fKO-5ATxMW0C6_wb_sY&sensor=false">
+  </script>
 </head>
 <body>
+
+<%= render 'layouts/admin_header' %>
 
 <%= yield %>
 
