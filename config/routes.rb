@@ -3,11 +3,19 @@ Rails.application.routes.draw do
   get '/' => 'site#index'
   get '/phone' => 'site#phone'
 
-  resources :communities  do
-    resources :houses do
-      resources :clients do
-        resources :reservations
-      end
-    end
-    resources :spaces
+  get '/reservations' => 'reservations#get_reservations'
+  get '/recordatorio/:client_id/:reservation_id' => 'reservations#send_recordatorio'
+  post '/email_recordatorio' => 'reservations#email_recordatorio'
+
+	resources :communities  do
+	    resources :houses do
+	      resources :clients do
+	        resources :reservations
+	      end
+	    end
+	end
+	resources :clients do
+	    resources :reservations
+	end
+	resources :spaces
 end

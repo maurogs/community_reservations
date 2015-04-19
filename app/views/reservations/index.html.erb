@@ -1,0 +1,9 @@
+
+
+<% @reservations.each do |reservation| %>
+	<%= reservation.name %>
+	<%= reservation.date %>
+	<%= reservation.hour %>
+	<%= Space.find(reservation.space_id).name %>
+	<br>
+<% end %>

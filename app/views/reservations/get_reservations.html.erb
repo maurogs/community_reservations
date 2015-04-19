@@ -1,0 +1,10 @@
+
+<% @reservations.each do |reservation| %>
+	<%= reservation.name %>
+	<%= reservation.date %>
+	<%= reservation.hour %>
+	<%= Space.find(reservation.space_id).name %>
+	 - <%= link_to "Ver las reservas de #{reservation.name}", client_reservations_path(Client.where('name = ?', reservation.name).first.id) %>
+	 - <%= link_to "Enviar un recordatorio", "/recordatorio/#{Client.where('name = ?', reservation.name).first.id}/#{reservation.id}" %>
+	<br>
+<% end %>

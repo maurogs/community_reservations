@@ -1,0 +1,26 @@
+
+<style>
+	#recordatorio{
+		width: 600px;
+		height: 100px;
+	}
+</style>
+<input id="recordatorio" name="recordatorio" type="text" value="<%= @client.name %> recuerda que tienes una reserva de '<%= @space.name %>' a las <%= @reservation.hour %> en tu comunidad Traity">
+<br>
+<%= link_to "Enviar un email a #{@client.name}", '', id: 'send_message', class: 'btn btn-info' %>
+
+<script>
+$('#send_message').click(function(){
+	var message = document.getElementById('recordatorio').value;
+
+	// Llamada post:
+		url = '/email_recordatorio';
+		var str = '{"client_id":"<%= @client.id %>","message":"' + message + '","reservation_id":"<%= @reservation.id %>"}';
+
+		alert(str);
+
+		// var dataToSend = JSON.parse(str);	
+		// var posting = $.post(url, dataToSend, function(data){
+	    // });	
+})
+</script>
